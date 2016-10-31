@@ -1,5 +1,5 @@
 <<%= @type %> <%= @attribute %>>
-<%- settings.each do |setting| -%>
-    <%= setting['param'] %> <%= setting['value'] %>
+<%- settings.each do |param,value| -%>
+    <%= param %> <%= value %>
 <%- end -%>
 </<%= @type %>>

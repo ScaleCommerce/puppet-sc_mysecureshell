@@ -1,7 +1,3 @@
-# settings should have format:
-# settings['key'] => 'foo'
-# settings['value'] => 'bar'
-
 define config_tag(
   $type,
   $attribute,
@@ -12,7 +8,7 @@ define config_tag(
 
   file {"/etc/ssh/sftp.d/$type-$attribute.conf":
 
-    content => template("${module_name}/config-tag.conf.erb"),
+    content => template("${module_name}/config_tag.conf.erb"),
 
   }
 
