@@ -57,8 +57,6 @@ class sc_mysecureshell (
     path    => '/usr/bin',
     source  => "puppet:///modules/$module_name/$source_dir",
     recurse => true,
-    owner   => root,
-    group   => root,
   }
 
   file { '/etc/ssh/sftp.d':
