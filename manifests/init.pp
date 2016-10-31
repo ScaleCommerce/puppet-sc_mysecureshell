@@ -1,6 +1,6 @@
-# == Class: dummy
+# == Class: sc_mysecureshell
 #
-# Full description of class dummy here.
+# Full description of class sc_mysecureshell here.
 #
 # === Parameters
 #
@@ -35,7 +35,51 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class dummy {
+class sc_mysecureshell (
 
+) {
+  case $::operatingsystem {
+    'Ubuntu': {
+      case $::operatingsystemmajrelease {
+        '14.04': {
+          $source_dir = 'ubuntu_14.04'
+        }
+        '16.04': {
+          $source_dir = 'ubuntu_16.04'
+        }
+        default: { fail('Operating System not supported.')}
+      }
+    }
+    default: { fail('Operating System not supported.') }
+  }
 
+  file {"mysecureshell_binaries":
+    path    => '/usr/bin',
+    source  => "puppet:///modules/$module_name/$source_dir",
+    recurse => true,
+    owner   => root,
+    group   => root,
+  }
+
+  file { '/etc/ssh/sftp.d':
+    ensure => directory,
+  }->
+
+  file { '/etc/ssh/sftp.d/default.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template("${module_name}/default.conf.erb"),
+  }->
+
+  file { '/etc/ssh/sftp_config':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    ensure  => 'present',
+  }->
+  file_line { 'includes':
+    path    => '/etc/ssh/sftp_config',
+    line    => 'Include /etc/sftp.d/default.conf	#include default params',
+  }
 }
