@@ -111,4 +111,9 @@ class sc_mysecureshell (
     path    => '/etc/ssh/sftp_config',
     line    => 'Include /etc/sftp.d/default.conf	#include default params',
   }
+
+  file_line { 'shell_entry':
+    path    => '/etc/shells',
+    line    => '/usr/bin/mysecureshell',
+  }
 }
