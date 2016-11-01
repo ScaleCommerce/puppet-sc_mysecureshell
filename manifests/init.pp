@@ -53,11 +53,23 @@ class sc_mysecureshell (
     default: { fail('Operating System not supported.') }
   }
 
-  file {"mysecureshell_binaries":
-    path    => '/usr/bin',
-    source  => "puppet:///modules/$module_name/$source_dir",
-    recurse => true,
+  # copy mysecure binaries
+  file { 'mysecureshell':
+    path => '/usr/bin',
+    source => "puppet:///modules/$module_name/$source_dir",
+    mode => '4755',
   }
+
+
+
+
+
+
+#  file {"mysecureshell_binaries":
+#    path    => '/usr/bin',
+#    source  => "puppet:///modules/$module_name/$source_dir",
+#    recurse => true,
+#  }
 
   file { '/etc/ssh/sftp.d':
     ensure => directory,
