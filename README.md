@@ -1,79 +1,58 @@
-# dummy
+# sc_mysecureshell
 
 #### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with dummy](#setup)
-    * [What dummy affects](#what-dummy-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with dummy](#beginning-with-dummy)
+    * [What sc_mysecureshell affects](#what-sc_mysecureshell-affects)
+    * [Beginning with sc_mysecureshell](#beginning-with-sc_mysecureshell)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+The sc_mysecureshell module installs and configures mysecureshell (http://mysecureshell.readthedocs.io/).   
+MySecureShell is a solution which has been made to bring more features to sftp/scp protocol 
+given by OpenSSH. By default, OpenSSH brings a lot of liberty to connected users which imply 
+to trust in your users. The goal of MySecureShell is to offer the power and security of OpenSSH, 
+with enhanced features (like ACL) to restrict connected users.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+Mysecureshell can not be installed as package by using apt. Binaries have to be compiled and installed. 
+ So our module contains the precompiled binaries for Ubuntu 14.04 and 16.04. You may easily add further 
+ binaries and put them into the files directory (subfolder: <$::operatingsystem>_<operatingsystemmajrelease>.  
+ The main class simply copies the mysecureshell binaries into /usr/bin, sets the needed rights an adds 
+ mysecureshell to /etc/shells. 
+ It also creates the needed config file (/etc/ssh/sftp_config) which will by default contain only one 
+ include on /etc/ssh/sftp.d/default.conf. The default config is done in config_tag.conf.erb template which 
+ by now does not contain any variable but a suitable config for sftp purposes. Later on we will make 
+ all parameters configurable.
 
 ## Setup
 
-### What dummy affects
+### What sc_mysecureshell affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-### Beginning with dummy
-
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
-
-## Usage
-
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
-
-## Reference
-
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+* Following files will be copied to /usr/bin:
+- mysecureshell
+- sftp-admin
+- sftp-kill
+- sftp-state
+- sftp-user
+- sftp-verif
+- sftp-who
+* Following files and directories will be created:
+- /etc/ssh/sftp_config (main config file)
+- /etc/ssh/sftp.d (directory for config include snippets)
+- /etc/ssh/sftp.d/default.conf (default config)
+* Following files will be changed:
+- /etc/shells (adding /usr/bin/mysecureshell)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+The Module contains binaries only for Ubuntu 14.04 and Ubuntu 16.04. If you need to 
+install mysecureshell on different operating sytems you will have to compile and install 
+it once manually and put the binaries int the apropriate subfolder inside the files directory.
 
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
