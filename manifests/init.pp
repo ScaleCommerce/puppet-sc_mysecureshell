@@ -59,16 +59,36 @@ class sc_mysecureshell (
     mode => '4755',
   }
 
+  file { '/usr/bin/sftp-admin':
+    source => "puppet:///modules/$module_name/$source_dir/sftp-admin",
+    mode => '700',
+  }
 
+  file { '/usr/bin/sftp-kill':
+    source => "puppet:///modules/$module_name/$source_dir/sftp-kill",
+    mode => '700',
+  }
 
+  file { '/usr/bin/sftp-state':
+    source => "puppet:///modules/$module_name/$source_dir/sftp-state",
+    mode => '700',
+  }
 
+  file { '/usr/bin/sftp-user':
+    source => "puppet:///modules/$module_name/$source_dir/sftp-user",
+    mode => '755',
+  }
 
+  file { '/usr/bin/sftp-verif':
+    source => "puppet:///modules/$module_name/$source_dir/sftp-verif",
+    mode => '755',
+  }
 
-#  file {"mysecureshell_binaries":
-#    path    => '/usr/bin',
-#    source  => "puppet:///modules/$module_name/$source_dir",
-#    recurse => true,
-#  }
+  file { '/usr/bin/sftp-who':
+    source => "puppet:///modules/$module_name/$source_dir/sftp-who",
+    mode => '755',
+  }
+
 
   file { '/etc/ssh/sftp.d':
     ensure => directory,
