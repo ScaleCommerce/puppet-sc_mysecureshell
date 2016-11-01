@@ -1,12 +1,12 @@
 {
-  "name": "scalecommerce-dummy",
+  "name": "scalecommerce-sc_mysecureshell",
   "version": "0.1.0",
   "author": "scalecommerce",
-  "summary": "Helps a lot! ;-)",
+  "summary": "Installation and configuration of mysecureshell for Ubuntu",
   "license": "Apache 2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/ScaleCommerce/puppet-sc_mysecureshell.git",
+  "project_page": "https://github.com/ScaleCommerce/puppet-sc_mysecureshell.git",
+  "issues_url": "https://github.com/ScaleCommerce/puppet-sc_mysecureshell.git",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ]
