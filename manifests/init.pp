@@ -54,9 +54,9 @@ class sc_mysecureshell (
   }
 
   # copy mysecure binaries
-  file { 'mysecureshell':
+  file { '/usr/bin/mysecureshell':
     path => '/usr/bin',
-    source => "puppet:///modules/$module_name/$source_dir",
+    source => "puppet:///modules/$module_name/$source_dir/mysecureshell",
     mode => '4755',
   }
 
