@@ -21,7 +21,7 @@ with enhanced features (like ACL) to restrict connected users.
 
 Mysecureshell can not be installed as package by using apt. Binaries have to be compiled and installed. 
  So our module contains the precompiled binaries for Ubuntu 14.04 and 16.04. You may easily add further 
- binaries and put them into the files directory (subfolder: <$::operatingsystem>_<operatingsystemmajrelease>.  
+ binaries and put them into the files directory (subfolder: <$::operatingsystem>_<$::operatingsystemmajrelease>.  
  The main class simply copies the mysecureshell binaries into /usr/bin, sets the needed rights an adds 
  mysecureshell to /etc/shells. 
  It also creates the needed config file (/etc/ssh/sftp_config) which will by default contain only one 
