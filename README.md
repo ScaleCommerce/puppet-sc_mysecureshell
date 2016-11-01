@@ -35,8 +35,7 @@ Mysecureshell can not be installed as package by using apt. Binaries have to be 
 
 ### What sc_mysecureshell affects
 
-* Following files will be copied to /usr/bin:
-
+Following files will be copied to /usr/bin:  
 - mysecureshell
 - sftp-admin
 - sftp-kill
@@ -45,8 +44,7 @@ Mysecureshell can not be installed as package by using apt. Binaries have to be 
 - sftp-verif
 - sftp-who
 
-* Following files and directories will be created:
-
+Following files and directories will be created:  
 - /etc/ssh/sftp_config (main config file)
 - /etc/ssh/sftp.d (directory for config include snippets)
 - /etc/ssh/sftp.d/default.conf (default config)
