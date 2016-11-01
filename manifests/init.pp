@@ -109,7 +109,7 @@ class sc_mysecureshell (
   }->
   file_line { 'includes':
     path    => '/etc/ssh/sftp_config',
-    line    => 'Include /etc/sftp.d/default.conf	#include default params',
+    line    => 'Include /etc/ssh/sftp.d/default.conf	#include default params',
   }
 
   file_line { 'shell_entry':
