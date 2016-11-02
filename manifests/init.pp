@@ -97,11 +97,12 @@ class sc_mysecureshell (
     ensure  => 'present',
     content => "##########################################################
 # THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #
-##########################################################"
+########################END###############################"
   }->
   file_line { 'includes':
     path    => '/etc/ssh/sftp_config',
     line    => 'Include /etc/ssh/sftp.d/default.conf	#include default params',
+    after   => "########################END###############################"
   }->
   file_line { 'includes-comment':
     path    => '/etc/ssh/sftp_config',
