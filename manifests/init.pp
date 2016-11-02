@@ -93,6 +93,7 @@ class sc_mysecureshell (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
+    ensure  => 'present',
   }->
 
   file { '/etc/ssh/sftp_config':
