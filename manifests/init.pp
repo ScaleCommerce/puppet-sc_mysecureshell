@@ -89,6 +89,11 @@ class sc_mysecureshell (
     mode    => '0644',
     content => template("${module_name}/default.conf.erb"),
   }->
+  file { '/etc/ssh/sftp.d/User-includes.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+  }->
 
   file { '/etc/ssh/sftp_config':
     owner   => 'root',
