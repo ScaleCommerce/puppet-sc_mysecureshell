@@ -99,6 +99,10 @@ class sc_mysecureshell (
   file_line { 'includes':
     path    => '/etc/ssh/sftp_config',
     line    => 'Include /etc/ssh/sftp.d/default.conf	#include default params',
+  }->
+  file_line { 'includes-comment':
+    path    => '/etc/ssh/sftp_config',
+    line    => '### all other includes have to go behind this line ###',
   }
 
   file_line { 'shell_entry':
