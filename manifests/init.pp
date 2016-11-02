@@ -95,14 +95,14 @@ class sc_mysecureshell (
     group   => 'root',
     mode    => '0644',
     ensure  => 'present',
-    content => "##########################################################
-# THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #
-########################END###############################"
   }->
   file_line { 'includes':
     path    => '/etc/ssh/sftp_config',
-    line    => "Include /etc/ssh/sftp.d/default.conf	#include default params\n### all other includes have to go behind this line ###",
-    after   => "########################END###############################"
+    line    => "##########################################################
+# THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #
+########################END###############################
+Include /etc/ssh/sftp.d/default.conf	#include default params
+### all other includes have to go behind this line ###",
   }
 
   file_line { 'shell_entry':
