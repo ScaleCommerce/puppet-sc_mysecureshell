@@ -101,8 +101,8 @@ class sc_mysecureshell (
     line    => "##########################################################
 # THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #
 ########################END###############################
-Include /etc/ssh/sftp.d/default.conf	#include default params
-### all other includes have to go behind this line ###",
+Include /etc/ssh/sftp.d/default.conf	         #include default params
+Include /etc/ssh/sftp.d/User-includes.conf     #includes single user conf files",
   }
 
   file_line { 'shell_entry':
