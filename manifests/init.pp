@@ -95,6 +95,9 @@ class sc_mysecureshell (
     group   => 'root',
     mode    => '0644',
     ensure  => 'present',
+    content => "##########################################################\n
+      # THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #\n
+      ##########################################################"
   }->
   file_line { 'includes':
     path    => '/etc/ssh/sftp_config',
