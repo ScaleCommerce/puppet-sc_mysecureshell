@@ -101,10 +101,7 @@ class sc_mysecureshell (
     group   => 'root',
     mode    => '0644',
     ensure  => 'present',
-  }->
-  file_line { 'includes':
-    path    => '/etc/ssh/sftp_config',
-    line    => "##########################################################
+    content => "##########################################################
 # THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #
 ########################END###############################
 Include /etc/ssh/sftp.d/default.conf	         #include default params
