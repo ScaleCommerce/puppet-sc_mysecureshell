@@ -8,10 +8,10 @@
 
 #Default rules for everybody
 <Default>
-	GlobalDownload		    50k	        #total speed download for all clients
+	GlobalDownload		    0	        #total speed download for all clients
 					                    # o -> bytes   k -> kilo bytes   m -> mega bytes
 	GlobalUpload		    0	        #total speed download for all clients (0 for unlimited)
-	Download 		        5k	        #limit speed download for each connection
+	Download 		        0	        #limit speed download for each connection
 	Upload 			        0	        #unlimit speed upload for each connection
 	StayAtHome		        true	    #limit client to his home
 	VirtualChroot		    true	    #fake a chroot to the home account
@@ -21,7 +21,7 @@
 	Home			        /home/$USER	#overrite home of the user but if you want you can use
 						                #	environment variable (ie: Home /home/$USER)
 	IdleTimeOut		        5m	        #(in second) deconnect client is idle too long time
-	ResolveIP		        true	    #resolve ip to dns
+	ResolveIP		        false	    #resolve ip to dns
 #	IgnoreHidden		    true	    #treat all hidden files as if they don't exist
 #	DirFakeUser		        true	    #Hide real file/directory owner (just change displayed permissions)
 #	DirFakeGroup		    true	    #Hide real file/directory group (just change displayed permissions)
