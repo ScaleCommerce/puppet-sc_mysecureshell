@@ -29,7 +29,7 @@ class sc_mysecureshell (
 ) {
   case $::operatingsystem {
     'Ubuntu': {
-      case $::operatingsystemmajrelease {
+      case $::operatingsystemrelease {
         '14.04': {
           $source_dir = 'ubuntu_14.04'
         }
