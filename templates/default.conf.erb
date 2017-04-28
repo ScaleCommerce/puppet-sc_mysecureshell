@@ -8,36 +8,36 @@
 
 #Default rules for everybody
 <Default>
-	GlobalDownload		    0	        #total speed download for all clients
-					                    # o -> bytes   k -> kilo bytes   m -> mega bytes
-	GlobalUpload		    0	        #total speed download for all clients (0 for unlimited)
-	Download 		        0	        #limit speed download for each connection
-	Upload 			        0	        #unlimit speed upload for each connection
-	StayAtHome		        true	    #limit client to his home
-	VirtualChroot		    true	    #fake a chroot to the home account
-	LimitConnection		    10	        #max connection for the server sftp
-	LimitConnectionByUser	10	        #max connection for the account
-	LimitConnectionByIP	    10	        #max connection by ip for the account
-	Home			        /home/$USER	#overrite home of the user but if you want you can use
-						                #	environment variable (ie: Home /home/$USER)
-	IdleTimeOut		        5m	        #(in second) deconnect client is idle too long time
-	ResolveIP		        false	    #resolve ip to dns
-#	IgnoreHidden		    true	    #treat all hidden files as if they don't exist
-#	DirFakeUser		        true	    #Hide real file/directory owner (just change displayed permissions)
-#	DirFakeGroup		    true	    #Hide real file/directory group (just change displayed permissions)
-#	DirFakeMode		        0400	    #Hide real file/directory rights (just change displayed permissions)
-					                    #Add execution right for directory if read right is set
-	HideNoAccess		    true	    #Hide file/directory which user has no access
-#	MaxOpenFilesForUser	    20	        #limit user to open x files on same time
-#	MaxWriteFilesForUser	10	        #limit user to x upload on same time
-#	MaxReadFilesForUser	    10	        #limit user to x download on same time
-	DefaultRights		    0640 0750	#Set default rights for new file and new directory
-#	MinimumRights		    0400 0700	#Set minimum rights for files and dirs
+	GlobalDownload		    <%= @global_download %>	        #total speed download for all clients
+					                                        # o -> bytes   k -> kilo bytes   m -> mega bytes
+	GlobalUpload		    <%= @global_upload %>	        #total speed download for all clients (0 for unlimited)
+	Download 		        <%= @download %>	            #limit speed download for each connection
+	Upload 			        <%= @upload %>	                #unlimit speed upload for each connection
+	StayAtHome		        <%= @stay_at_home %>	        #limit client to his home
+	VirtualChroot		    <%= @virtual_chroot %>	        #fake a chroot to the home account
+	LimitConnection		    <%= @limit_connection %>	    #max connection for the server sftp
+	LimitConnectionByUser	<%= @limit_connection_by_user %>#max connection for the account
+	LimitConnectionByIP	    <%= @limit_connection_by_ip %>	#max connection by ip for the account
+	Home			        <%= @home %>	                #overrite home of the user but if you want you can use
+						                                    #	environment variable (ie: Home /home/$USER)
+	IdleTimeOut		        <%= @idle_timneout %>	        #(in second) deconnect client is idle too long time
+	ResolveIP		        <%= @resolve_ip %>	            #resolve ip to dns
+	IgnoreHidden		    <%= @ignore_hidden %>	        #treat all hidden files as if they don't exist
+#	DirFakeUser		        true	                        #Hide real file/directory owner (just change displayed permissions)
+#	DirFakeGroup		    true	                        #Hide real file/directory group (just change displayed permissions)
+#	DirFakeMode		        0400	                        #Hide real file/directory rights (just change displayed permissions)
+					                                        #Add execution right for directory if read right is set
+	HideNoAccess		    <%= @hide_no_access %>	        #Hide file/directory which user has no access
+#	MaxOpenFilesForUser	    20	                            #limit user to open x files on same time
+#	MaxWriteFilesForUser	10	                            #limit user to x upload on same time
+#	MaxReadFilesForUser	    10	                            #limit user to x download on same time
+	DefaultRights		    <%= @default_rights %>	        #Set default rights for new file and new directory
+#	MinimumRights		    0400 0700	                    #Set minimum rights for files and dirs
 
-	ShowLinksAsLinks	    false	#show links as their destinations
-#	ConnectionMaxLife	    1d	#limits connection lifetime to 1 day
+	ShowLinksAsLinks	    <%= @show_links_as_links %>	    #show links as their destinations
+#	ConnectionMaxLife	    1d	                            #limits connection lifetime to 1 day
 
-#	Charset			        "ISO-8859-15"	#set charset of computer
+#	Charset			        "ISO-8859-15"	                #set charset of computer
 </Default>
 
 #Rules only for group ftp
