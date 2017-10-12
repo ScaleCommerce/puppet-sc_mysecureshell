@@ -16,18 +16,6 @@
 #
 # === Examples
 #
-#  class { 'sc_mysecureshell::config_tag':
-#    type => 'User',
-#    attribute => 't.test',
-#    settings => {
-#      ['Home', '/var/www/www.shop.de/web'],
-#      ['ForceUser', 'www-data'],
-#    }
-#  }
-#
-# --- or used by another puppet class:
-#
-# include sc_mysecureshell
 # $sftpsettings = { 'Home' => 'somedir', 'ForceUser' => 'someusername' }
 # sc_mysecureshell::config_tag { 'somename-config':
 #   type      => 'User',
@@ -40,12 +28,13 @@
 # classes:
 #   - sc_mysecureshell
 #
-# sc_mysecureshell::config_tag:
-#   type: 'User'
-#   attribute: 't.test'
-#   settings:
-#     Home: '/var/www/www.shop.de/web'
-#     ForceUser: 'www-data'
+# sc_mysecureshell::config_tags:
+#   '<EXAMPLE-NAME>':
+#     type: 'User'
+#     attribute: 't.test'
+#     settings:
+#       Home: '/var/www/www.shop.de/web'
+#       ForceUser: 'www-data'
 #
 # === Authors
 #
