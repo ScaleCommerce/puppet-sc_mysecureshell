@@ -178,4 +178,8 @@ Include /etc/ssh/sftp.d/User-includes.conf     #includes single user conf files"
     path    => '/etc/shells',
     line    => '/usr/bin/mysecureshell',
   }
+  
+  create_resources('sc_mysecureshell::config_tag', hiera_hash('sc_mysecureshell::config_tags', {})
+  
 }
+
