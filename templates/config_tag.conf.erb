@@ -2,7 +2,7 @@
 # THIS FILE IS MANAGED BY PUPPET - DO NOT EDIT MANUALLY! #
 ##########################################################
 <<%= @type %> <%= @attribute %>>
-<%- settings.each do |param,value| -%>
+<%- @settings.each do |param,value| -%>
     <%= param.to_s %> <%= value.to_s %>
 <%- end -%>
 </<%= @type %>>
