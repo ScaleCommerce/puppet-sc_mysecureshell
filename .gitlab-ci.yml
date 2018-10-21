@@ -6,5 +6,4 @@ stages:
 push2github:
   stage: push2github
   script:
-    - git remote add github https://${GITHUB_TOKEN}@github.com/ScaleCommerce/puppet-sc_mysecureshell.git > /dev/null 2>&1
-    - git push --mirror --set-upstream github
+    - git push --quiet --mirror https://$GITHUB_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
