@@ -102,46 +102,55 @@ class sc_mysecureshell (
         '16.04': {
           $source_dir = 'ubuntu_16.04'
         }
+        '18.04': {
+          $source_dir = 'apt'
+        }
         default: { fail('Operating System not supported.')}
       }
     }
     default: { fail('Operating System not supported.') }
   }
 
-  # copy mysecure binaries
-  file { '/usr/bin/mysecureshell':
-    source => "puppet:///modules/$module_name/$source_dir/mysecureshell",
-    mode => '4755',
-  }
+  if $source_dir != 'apt' {
+      # copy mysecure binaries
+      file { '/usr/bin/mysecureshell':
+        source => "puppet:///modules/$module_name/$source_dir/mysecureshell",
+        mode => '4755',
+      }
 
-  file { '/usr/bin/sftp-admin':
-    source => "puppet:///modules/$module_name/$source_dir/sftp-admin",
-    mode => '700',
-  }
+      file { '/usr/bin/sftp-admin':
+        source => "puppet:///modules/$module_name/$source_dir/sftp-admin",
+        mode => '700',
+      }
 
-  file { '/usr/bin/sftp-kill':
-    source => "puppet:///modules/$module_name/$source_dir/sftp-kill",
-    mode => '700',
-  }
+      file { '/usr/bin/sftp-kill':
+        source => "puppet:///modules/$module_name/$source_dir/sftp-kill",
+        mode => '700',
+      }
 
-  file { '/usr/bin/sftp-state':
-    source => "puppet:///modules/$module_name/$source_dir/sftp-state",
-    mode => '700',
-  }
+      file { '/usr/bin/sftp-state':
+        source => "puppet:///modules/$module_name/$source_dir/sftp-state",
+        mode => '700',
+      }
 
-  file { '/usr/bin/sftp-user':
-    source => "puppet:///modules/$module_name/$source_dir/sftp-user",
-    mode => '755',
-  }
+      file { '/usr/bin/sftp-user':
+        source => "puppet:///modules/$module_name/$source_dir/sftp-user",
+        mode => '755',
+      }
 
-  file { '/usr/bin/sftp-verif':
-    source => "puppet:///modules/$module_name/$source_dir/sftp-verif",
-    mode => '755',
-  }
+      file { '/usr/bin/sftp-verif':
+        source => "puppet:///modules/$module_name/$source_dir/sftp-verif",
+        mode => '755',
+      }
 
-  file { '/usr/bin/sftp-who':
-    source => "puppet:///modules/$module_name/$source_dir/sftp-who",
-    mode => '755',
+      file { '/usr/bin/sftp-who':
+        source => "puppet:///modules/$module_name/$source_dir/sftp-who",
+        mode => '755',
+      }
+  } else {
+      package { "mysecureshell":
+        ensure => 'installed',
+      }
   }
 
 
