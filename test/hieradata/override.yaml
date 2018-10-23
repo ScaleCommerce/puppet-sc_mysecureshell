@@ -1,0 +1,8 @@
+---
+users::users:
+  bob:
+    uid: 10003
+    group: 'www-data'
+    sftpdir: '/var/www/test'
+    sftpuser: 'www-data'
+    password: '$6$pqLMUrlc47VbrCCH$3TdZ2Y0QQlnrWrsRkaWng/fL1QsrwVVR1IaKOueO90SMIpE4TPVnhBjFh3To28Yyt34Wa2bGXQPHPfhamoRui1' #bobpw

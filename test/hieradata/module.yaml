@@ -1,0 +1,10 @@
+---
+users::users:
+  john:
+    uid: 10002
+    group: 'www-data'
+    sftpdir: '/var/www/test'
+    sftpuser: 'www-data'
+    sshkeys:
+      - ssh-rsa test1
+      - ssh-rsa test2

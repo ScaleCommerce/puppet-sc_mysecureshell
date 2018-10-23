@@ -1,7 +1,45 @@
-image: scalecommerce/xenial:1.11
+image: scalecommerce/xenial:1.12
 
 stages:
+  - Puppet 5
+  - Puppet 6
   - push2github
+
+trusty:puppet5:
+  image: scalecommerce/base:0.6
+  stage: Puppet 5
+  script:
+    - ./test/install-puppet5.sh
+    - ./test/install.sh
+    - puppet apply -v ./test/site.pp
+    - inspec exec ./test/inspec/sc_mysecureshell.rb
+
+trusty:puppet6:
+  image: scalecommerce/base:0.6
+  stage: Puppet 6
+  script:
+    - ./test/install-puppet6.sh
+    - ./test/install.sh
+    - puppet apply -v ./test/site.pp
+    - inspec exec ./test/inspec/sc_mysecureshell.rb
+
+xenial:puppet5:
+  image: scalecommerce/xenial:1.12
+  stage: Puppet 5
+  script:
+    - ./test/install-puppet5.sh
+    - ./test/install.sh
+    - puppet apply -v ./test/site.pp
+    - inspec exec ./test/inspec/sc_mysecureshell.rb
+
+xenial:puppet6:
+  image: scalecommerce/xenial:1.12
+  stage: Puppet 6
+  script:
+    - ./test/install-puppet6.sh
+    - ./test/install.sh
+    - puppet apply -v ./test/site.pp
+    - inspec exec ./test/inspec/sc_mysecureshell.rb
 
 push2github:
   stage: push2github

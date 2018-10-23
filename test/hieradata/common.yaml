@@ -1,0 +1,10 @@
+---
+classes:
+  - supervisord
+  - users
+
+users::users:
+  jane:
+    uid: 10001
+    group: users
+    password: '$6$g/d4XmCqmuDnvZTO$gGe9LT1H9oP4rjLbQaHtdeH7K.f4nyVCZva0ydGuFzW.cWlproVJnruafHLkRAmR3TboC9CTtmFCeHBHtrbXF0' #janepw
