@@ -1,6 +1,6 @@
 {
   "name": "scalecommerce-sc_mysecureshell",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "scalecommerce",
   "summary": "Installation and configuration of mysecureshell for Ubuntu",
   "license": "Apache 2.0",
@@ -11,4 +11,3 @@
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ]
 }
-
