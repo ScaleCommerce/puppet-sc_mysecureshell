@@ -55,7 +55,7 @@ Following files will be changed:
 
 ## Limitations
 
-The Module contains binaries only for Ubuntu 14.04 and Ubuntu 16.04. If you need to
+The Module contains binaries only for Ubuntu 14.04, Ubuntu 16.04 and Ubuntu 18.04. If you need to
 install mysecureshell on different operating sytems you will have to compile and install
 it once manually and put the binaries int the apropriate subfolder inside the files directory.
 
