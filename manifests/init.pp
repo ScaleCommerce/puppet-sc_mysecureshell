@@ -88,7 +88,7 @@ class sc_mysecureshell (
   $home                     = '/home/$USER',	#overrite home of the user but if you want you can use
   $idle_time_out            = '5m',	          #(in second) deconnect client is idle too long time
   $resolve_ip               = false,	        #resolve ip to dns
-  $ignore_hidden            = true,	          #treat all hidden files as if they don't exist
+  $ignore_hidden            = false,	          #treat all hidden files as if they don't exist
   $hide_no_access           = true,	          #Hide file/directory which user has no access
   $default_rights           = '0640 0750',	  #Set default rights for new file and new directory
   $show_links_as_links      = false,	        #show links as their destinations
