@@ -105,6 +105,9 @@ class sc_mysecureshell (
         '18.04': {
           $source_dir = 'apt'
         }
+        '20.04': {
+          $source_dir = 'apt'
+        }        
         default: { fail('Operating System not supported.')}
       }
     }
