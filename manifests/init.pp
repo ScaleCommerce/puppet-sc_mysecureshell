@@ -160,7 +160,6 @@ class sc_mysecureshell (
   file { '/etc/ssh/sftp.d':
     ensure => directory,
   }->
-
   file { '/etc/ssh/sftp.d/default.conf':
     owner   => 'root',
     group   => 'root',
@@ -173,7 +172,12 @@ class sc_mysecureshell (
     mode    => '0644',
     ensure  => 'present',
   }->
-
+  file { '/usr/bin/mysecureshell':
+    owner   => 'root',
+    group   => 'root',
+    ensure  => 'present',    
+    mode => '4755',
+  }->
   file { '/etc/ssh/sftp_config':
     owner   => 'root',
     group   => 'root',
