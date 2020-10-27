@@ -153,6 +153,9 @@ class sc_mysecureshell (
   } else {
       package { "mysecureshell":
         ensure => 'installed',
+      }->
+      file { '/usr/bin/mysecureshell':
+        mode => '4755',
       }
   }
 
@@ -171,12 +174,6 @@ class sc_mysecureshell (
     group   => 'root',
     mode    => '0644',
     ensure  => 'present',
-  }->
-  file { '/usr/bin/mysecureshell':
-    owner   => 'root',
-    group   => 'root',
-    ensure  => 'present',    
-    mode => '4755',
   }->
   file { '/etc/ssh/sftp_config':
     owner   => 'root',
