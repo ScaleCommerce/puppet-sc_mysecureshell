@@ -63,4 +63,4 @@ bionic:puppet6:
 push2github:
   stage: push2github
   script:
-    - git push --quiet --mirror https://$GITHUB_SUPPORT_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
+    - git push --quiet --mirror https://$GITHUB_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
