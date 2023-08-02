@@ -1,7 +1,7 @@
 #!/bin/bash
 export PATH=/opt/puppetlabs/bin:$PATH
-sed -i -e "s/nodaemon=true/nodaemon=false/" /etc/supervisord.conf
-/usr/local/bin/supervisord -c /etc/supervisord.conf
+#sed -i -e "s/nodaemon=true/nodaemon=false/" /etc/supervisord.conf
+#/usr/local/bin/supervisord -c /etc/supervisord.conf
 echo "Running in $(pwd)"
 echo "Puppet Version: $(puppet -V)"
 
