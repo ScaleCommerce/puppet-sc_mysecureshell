@@ -18,8 +18,7 @@ push2github:
   tags:
     - dind
   script:
-    - env
-    - git clone --mirror $CI_REPOSITORY_URL
-    - cd puppet-sc_mysecureshell.git
-    - git remote set-url --push origin https://$GITHUB_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
+    - git clone --mirror $CI_REPOSITORY_URL .git-mirror
+    - cd .git-mirror
+    - git remote set-url --push origin  https://$GITHUB_TOKEN@github.com/ScaleCommerce/$CI_PROJECT_NAME.git
     - git push --quiet --mirror
