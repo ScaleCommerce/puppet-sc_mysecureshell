@@ -14,7 +14,11 @@ focal:puppet7:
     - inspec exec ./test/inspec/sc_mysecureshell.rb
 push2github:
   stage: push2github
+  image: scalecommerce/focal-supervisord:1.5
   tags:
     - dind
   script:
-    - git push --quiet --mirror https://$GITHUB_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
+    - git clone --mirror $CI_REPOSITORY_URL
+    - cd puppet-sc_apache.git
+    - git remote set-url --push origin https://$GITHUB_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
+    - git push --quiet --mirror
