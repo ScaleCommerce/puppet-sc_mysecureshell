@@ -1,6 +1,5 @@
 ---
 classes:
-  - supervisord
   - users
 
 users::users:
