@@ -12,7 +12,6 @@ bionic:puppet6:
     - ./test/install.sh
     - puppet apply -v ./test/site.pp
     - inspec exec ./test/inspec/sc_mysecureshell.rb
-    -
 push2github:
   stage: push2github
   tags:
