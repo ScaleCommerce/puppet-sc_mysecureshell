@@ -1,23 +1,23 @@
-lookup('classes')
+hiera_include('classes')
 
 # resource wrapper
-$files=lookup('files', undef, undef, {})
+$files=hiera_hash('files', {})
 create_resources(file, $files)
 
-$crons=lookup('crons', undef, undef, {})
+$crons=hiera_hash('crons', {})
 create_resources(cron, $crons)
 
-$execs=lookup('execs', undef, undef, {})
+$execs=hiera_hash('execs', {})
 create_resources(exec, $execs)
 
-$hosts=lookup('hosts', undef, undef, {})
+$hosts=hiera_hash('hosts', {})
 create_resources(host, $hosts)
 
-$mounts=lookup('mounts', undef, undef, {})
+$mounts=hiera_hash('mounts', {})
 create_resources(mount, $mounts)
 
-$packages=lookup('packages', undef, undef, {})
+$packages=hiera_hash('packages', {})
 create_resources(package, $packages)
 
-$services=lookup('services', undef, undef, {})
+$services=hiera_hash('services', {})
 create_resources(service, $services)
