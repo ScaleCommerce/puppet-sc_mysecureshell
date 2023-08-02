@@ -1,4 +1,4 @@
-hiera_include('classes')
+lookup('classes')
 
 # resource wrapper
 $files=hiera_hash('files', {})
