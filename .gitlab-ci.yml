@@ -19,6 +19,6 @@ push2github:
     - dind
   script:
     - git clone --mirror $CI_REPOSITORY_URL
-    - cd puppet-sc_apache.git
+    - cd puppet-sc_mysecureshell.git
     - git remote set-url --push origin https://$GITHUB_TOKEN@github.com/ScaleCommerce/puppet-sc_mysecureshell.git
     - git push --quiet --mirror
