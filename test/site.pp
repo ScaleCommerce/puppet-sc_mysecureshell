@@ -1,4 +1,4 @@
-lookup('classes')
+lookup('classes', Array[String], 'unique').include
 
 # resource wrapper
 $files=lookup('files', undef, undef, {})
